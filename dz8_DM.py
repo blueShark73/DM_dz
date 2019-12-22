@@ -64,35 +64,35 @@ def convert_from_16_to_10(number):
     for i in range(len(number)):
         if comma:
             if number[i] == '1':
-                result += 1 / (1 * 16 ** (i - len(int_number)))
+                result += 1 / (16 ** (i - len(int_number)))
             elif number[i] == '2':
-                result += 1 / (2 * 16 ** (i - len(int_number)))
+                result += 2 / (16 ** (i - len(int_number)))
             elif number[i] == '3':
-                result += 1 / (3 * 16 ** (i - len(int_number)))
+                result += 3 / (16 ** (i - len(int_number)))
             elif number[i] == '4':
-                result += 1 / (4 * 16 ** (i - len(int_number)))
+                result += 4 / (16 ** (i - len(int_number)))
             elif number[i] == '5':
-                result += 1 / (5 * 16 ** (i - len(int_number)))
+                result += 5 / (16 ** (i - len(int_number)))
             elif number[i] == '6':
-                result += 1 / (6 * 16 ** (i - len(int_number)))
+                result += 6 / (16 ** (i - len(int_number)))
             elif number[i] == '7':
-                result += 1 / (7 * 16 ** (i - len(int_number)))
+                result += 7 / (16 ** (i - len(int_number)))
             elif number[i] == '8':
-                result += 1 / (8 * 16 ** (i - len(int_number)))
+                result += 8 / (16 ** (i - len(int_number)))
             elif number[i] == '9':
-                result += 1 / (9 * 16 ** (i - len(int_number)))
+                result += 9 / (16 ** (i - len(int_number)))
             elif number[i] == 'A':
-                result += 1 / (10 * 16 ** (i - len(int_number)))
+                result += 10 / (16 ** (i - len(int_number)))
             elif number[i] == 'B':
-                result += 1 / (11 * 16 ** (i - len(int_number)))
+                result += 11 / (16 ** (i - len(int_number)))
             elif number[i] == 'C':
-                result += 1 / (12 * 16 ** (i - len(int_number)))
+                result += 12 / (16 ** (i - len(int_number)))
             elif number[i] == 'D':
-                result += 1 / (13 * 16 ** (i - len(int_number)))
+                result += 13 / (16 ** (i - len(int_number)))
             elif number[i] == 'E':
-                result += 1 / (14 * 16 ** (i - len(int_number)))
+                result += 14 / (16 ** (i - len(int_number)))
             elif number[i] == 'F':
-                result += 1 / (15 * 16 ** (i - len(int_number)))
+                result += 15 / (16 ** (i - len(int_number)))
         else:
             if number[i] == '1':
                 result += 1 * 16 ** (len(int_number) - 1 - i)
@@ -283,7 +283,8 @@ def parse_to(number, format):
         number = number[:4]
         if carry:
             numb = '0' + convert_from_16_to_2(number[2:])
-            number = '0.' + choose_letter(sum_str(numb, '000000001')[1:5])+choose_letter(sum_str(numb, '000000001')[5:])
+            number = '0.' + choose_letter(sum_str(numb, '000000001')[1:5]) + choose_letter(
+                sum_str(numb, '000000001')[5:])
         characteristic = 64 + order
         characteristic_str = convert(characteristic, 2)[:-1]
         while len(characteristic_str) < 7:
