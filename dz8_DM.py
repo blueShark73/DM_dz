@@ -277,6 +277,8 @@ def parse_to(number, format):
                 order += 1
             number = "0." + number[:order] + number[order + 1:]
         carry = False
+        while len(number) < 5:
+            number += '0'
         if number[4] == '9' or number[4] == 'A' or number[4] == 'B' or number[4] == 'C' or number[4] == 'D' or number[
             4] == 'E' or number[4] == 'F':
             carry = True
@@ -308,6 +310,8 @@ def parse_to(number, format):
                 order += 1
             number = "0." + number[:order] + number[order + 1:]
         carry = False
+        while len(number) < 11:
+            number += '0'
         if number[10] == '1':
             carry = True
         number = number[:10]
